@@ -258,7 +258,7 @@ function victory() {
     highscore = Math.floor(1/((fails+0.01)*(minute+0.01)*(second/10))*10000);
     stopTimer();
     show(victoryModal);
-    endStats[1].innerHTML = "Your score: " + highscore;
+    endStats[0].innerHTML = "Your score: " + highscore;
     if (highscore > localStore) {
       localStorage.setItem("HighScore", (highscore).toString(10));
     }
