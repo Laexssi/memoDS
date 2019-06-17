@@ -246,6 +246,7 @@ position: absolute;
   height: 100%;
   width: 100%;
   backface-visibility: hidden;
+  /* pls hidden */
 }
 
 .front-face {
