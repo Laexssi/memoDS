@@ -10,15 +10,11 @@ const highScoreList = document.querySelector(".highScoreList");
 let highScoreRecord = localStorage.getItem("HighScore");
 const scoreArr = [];
 
-
-
-
-function setHighscore () {
+function setHighscore() {
   highScoreRecord === null
-  ?  highScoreList.innerHTML = "Highscore: " 
-  :  highScoreList.innerHTML = "Highscore: " + highScoreRecord
-};
-
+    ? (highScoreList.innerHTML = "Highscore: ")
+    : (highScoreList.innerHTML = "Highscore: " + highScoreRecord);
+}
 
 // Knuth shuffle
 function shuffle(arr) {
@@ -41,18 +37,17 @@ const deck = document.querySelector(".deck");
   const shuffledCards = shuffle(cards);
   setHighscore();
   shuffledCards.forEach(shuffledCard => deck.appendChild(shuffledCard));
-  !localStore 
-  ?lastGameHighscore.innerHTML ="Last score: "
-  :lastGameHighscore.innerHTML ="Last score: " + localStore;
+  !localStore
+    ? (lastGameHighscore.innerHTML = "Last score: ")
+    : (lastGameHighscore.innerHTML = "Last score: " + localStore);
 })();
 
 //cards state
 const displayCard = function() {
-  
   this.classList.add("flip");
- 
+
   this.classList.add("disabled");
-  
+
   console.log(this);
 };
 cards.forEach(card => card.addEventListener("click", displayCard));
@@ -68,38 +63,39 @@ function cardOpen() {
   openedCards.push(this);
   console.log(openedCards);
   if (openedCards.length === 2) {
-    
     openedCards[0].type === openedCards[1].type ? matched() : unmatched();
   }
   showMoves();
 }
 const chestModal = document.querySelector(".overlay-chest");
 function chestEncounter() {
- show(chestModal);
-};
+  show(chestModal);
+}
 
-function leaveChest (){
+function leaveChest() {
   chestModal.classList.remove("show");
 }
 
 function mimicAttack() {
-  $('.chest-logo').css('background-image', 'url(img/mim.png)');
-  $('.open-chest').css("visibility", "hidden");
-  $('.leave-chest').text("RUN");
-  hp = hp - 10
+  $(".chest-logo").css("background-image", "url(img/mim.png)");
+  $(".open-chest").css("visibility", "hidden");
+  $(".leave-chest").text("RUN");
+  hp = hp - 10;
   $(".health-bar-text").html(Math.round(hp) + "%");
-  $('.healthbar').css('width', hp + '%' );
-  $('.healthbar-secondary').css('width', hp + '%');
+  $(".healthbar").css("width", hp + "%");
+  $(".healthbar-secondary").css("width", hp + "%");
 }
 
 function drinkEsthus() {
-  $('.chest-logo').css('background-image', 'url(img/esthus.png)');
-  $('.open-chest').css("visibility", "hidden");
-  $('.leave-chest').text("Drink Esthus");
-  if (hp <= 90 ) {hp = hp + 10};
+  $(".chest-logo").css("background-image", "url(img/esthus.png)");
+  $(".open-chest").css("visibility", "hidden");
+  $(".leave-chest").text("Drink Esthus");
+  if (hp <= 90) {
+    hp = hp + 10;
+  }
   $(".health-bar-text").html(Math.round(hp) + "%");
-  $('.healthbar').css('width', hp + '%' );
-  $('.healthbar-secondary').css('width', hp + '%');
+  $(".healthbar").css("width", hp + "%");
+  $(".healthbar-secondary").css("width", hp + "%");
 }
 
 function openChest() {
@@ -107,32 +103,33 @@ function openChest() {
   rndm > 0.5 ? mimicAttack() : drinkEsthus();
 }
 function matched() {
-  
   openedCards[0].classList.add("matched");
   openedCards[1].classList.add("matched");
   openedCards[0].classList.add("disabled");
   openedCards[1].classList.add("disabled");
   matchedCard.push(openedCards[0]);
   matchedCard.push(openedCards[1]);
-  if (openedCards[0].type === "1" && openedCards[1].type ==="1" ){
-    setTimeout(() => {chestEncounter()}, 2000);
+  if (
+    openedCards[0].type === "1" &&
+    openedCards[1].type === "1" &&
+    matchedCard.length < 15
+  ) {
+    setTimeout(() => {
+      chestEncounter();
+    }, 2000);
   }
   openedCards = [];
- 
+
   showEnemiesDefeated();
- 
 }
 
-
 function unmatched() {
- 
   openedCards[0].classList.add("unmatched");
   openedCards[1].classList.add("unmatched");
- 
-//   setTimeout(() => {openedCards[0].style = "background-color: #470516;";
-//   openedCards[1].style = "background-color: #470516;";
-// }, 500);
-  
+
+  //   setTimeout(() => {openedCards[0].style = "background-color: #470516;";
+  //   openedCards[1].style = "background-color: #470516;";
+  // }, 500);
 
   disable();
   setTimeout(() => {
@@ -160,35 +157,36 @@ function enable() {
 }
 
 //timer
-let second = 0, minute = 0, hour = 0;
+let second = 0,
+  minute = 0,
+  hour = 0;
 let interval;
 const timer = document.querySelector(".timer");
 function startTimer() {
-  interval = setInterval( () => {
-      second++;
-      if (second < 10) {
-        second = "0"+second;
-      }
-      if (second > 59) {
-        minute++;
-        second=0;
-      }
-      if (minute == 10){
-        second = "00";
-        show(document.querySelector(".overlay-died"));
-        endStats[0].innerHTML ="Your time is out";
-        stopTimer();
-      }
-      timer.innerHTML = "Time: " + minute + ":" + second;
+  interval = setInterval(() => {
+    second++;
+    if (second < 10) {
+      second = "0" + second;
+    }
+    if (second > 59) {
+      minute++;
+      second = 0;
+    }
+    if (minute == 10) {
+      second = "00";
+      show(document.querySelector(".overlay-died"));
+      endStats[0].innerHTML = "Your time is out";
+      stopTimer();
+    }
+    timer.innerHTML = "Time: " + minute + ":" + second;
   }, 1000);
-  };
-
+}
 
 function stopTimer() {
   clearInterval(interval);
 }
 
-//counters 
+//counters
 
 // function counter() {
 //   let currentCounter = 0;
@@ -197,74 +195,75 @@ function stopTimer() {
 //   };
 //  };
 
-
-
 let steps = document.querySelector(".steps");
 let moves = 0;
 function showMoves() {
   moves++;
   steps.innerHTML = "Steps: " + moves;
-  
+
   if (moves == 1) {
     second = 0;
     minute = 0;
     hour = 0;
     startTimer();
   }
-};
+}
 
 let enemiesDefeated = document.querySelector(".enemies");
 let rightMoves = 0;
 function showEnemiesDefeated() {
- rightMoves++;
- enemiesDefeated.innerHTML = `Enemies defeated: ${rightMoves}/8`;
-};
+  rightMoves++;
+  enemiesDefeated.innerHTML = `Enemies defeated: ${rightMoves}/8`;
+}
 
 let mistakes = document.querySelector(".mistakes");
 let fails = 0;
 function showMistakes() {
   fails++;
   mistakes.innerHTML = "Mistakes: " + fails;
-};
+}
 
 let hp = 100;
 function hitHealthbar() {
   hp = hp - 10;
   $(".health-bar-text").html(Math.round(hp) + "%");
-  $('.healthbar').css('width', hp + '%' );
-  $('.healthbar-secondary').css('width', hp + '%');
+  $(".healthbar").css("width", hp + "%");
+  $(".healthbar-secondary").css("width", hp + "%");
   if (hp <= 0) {
     stopTimer();
-    setTimeout(() => {show(document.querySelector(".overlay-died"))}, 1800);
+    setTimeout(() => {
+      show(document.querySelector(".overlay-died"));
+    }, 1800);
   }
-};
+}
 
 function show(modal) {
   modal.classList.add("show");
-};
+}
 
-function refreshPage(){
+function refreshPage() {
   location.reload("true");
   console.log(this);
 }
 
 document.onclick = function(e) {
   console.log(e.target);
-}
+};
 
 function victory() {
   if (matchedCard.length == 16) {
-    
-    highscore = Math.floor(1/((fails+0.01)*(minute+0.01)*(second/10))*10000);
+    highscore = Math.floor(
+      (1 / ((fails + 0.01) * (minute + 0.01) * (second / 10))) * 10000
+    );
     stopTimer();
+
     show(victoryModal);
+
     endStats[0].innerHTML = "Your score: " + highscore;
     if (highscore > localStore) {
-      localStorage.setItem("HighScore", (highscore).toString(10));
+      localStorage.setItem("HighScore", highscore.toString(10));
     }
-    localStorage.setItem("lastHighScore", (highscore).toString(10));
+    localStorage.setItem("lastHighScore", highscore.toString(10));
     console.log(matchedCard.length);
   }
 }
-
-

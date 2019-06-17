@@ -68,9 +68,11 @@ h1 .logo {
   border-radius: 5px;
   box-sizing: border-box;
   margin: 0px;
+  margin-left: 0px;
   padding: 5px 5px 5px 5px;
   text-align: center;
   line-height: 25px;
+  flex-shrink: 1;
   
   
 }
@@ -243,7 +245,7 @@ position: absolute;
   margin: 0 auto;
   height: 100%;
   width: 100%;
-  backface-visibility: hidden;
+  backface-visibility: visible;
 }
 
 .front-face {
@@ -355,21 +357,7 @@ button {
   border: 0;
   margin-bottom: 50px;
 }
-/* .play-again {
-  font-size: 46px;
-  font-family: "Optimus", serif;
-  font-size: 42px;
-  color: #5d0d0e;
-  background-color: transparent;
-  border: 0;
-  transition: opacity 500ms;
-  text-transform: uppercase;
-  cursor: pointer;
-  animation: pulsate 2.5s ease-out;
-    animation-iteration-count: infinite; 
-    opacity: 0.4;
- 
-} */
+
 
 @keyframes pulsate {
   from{ 
