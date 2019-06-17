@@ -120,7 +120,7 @@ position: absolute;
   flex-direction: row;
   width: 100%;
   flex-wrap: nowrap;
-  justify-content: CENTER;
+  justify-content: center;
 }
 .sidebar-left {
   background-color: transparent;
@@ -245,7 +245,7 @@ position: absolute;
   margin: 0 auto;
   height: 100%;
   width: 100%;
-  backface-visibility: visible;
+  backface-visibility: hidden;
 }
 
 .front-face {
