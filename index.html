@@ -1,0 +1,133 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Memo Souls</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          <img src="img/logo.png" alt="dark souls" class="logo" />Prepare your
+          memory
+        </h1>
+      </header>
+      <div class="healthBarShell">
+        <div class="health-bar-text">100%</div>
+        <div class="healthbar"></div>
+        <div class="healthbar-secondary"></div>
+      </div>
+
+      <section class="field">
+        <aside class="sidebar-left">
+                STORY
+                <ul class="storylist">
+                        
+                        <li class="steps">Steps: 0</li>
+                        <li class="mistakes">Mistakes: 0</li>
+                        <li class="enemies">Enemies defeated: 0/8 </li>
+                        <li class="timer">Time: 0:00 </li>
+                        <li class="lastGameScore"></li>
+                        <li class="highScoreList"></li>
+
+                       
+                </ul>
+        </aside>
+        <aside class="sidebar-right"></aside>
+        <ul class="deck" id="card-deck">
+          <li class="card scaled" type="1">
+            <img src="img/firebone.png" alt="firebone" class="front-face" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="1">
+            <img src="img/firebone.png" alt="firebone" class="front-face" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="2">
+            <img src="img/william.png" alt="william" class="front-face cut" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="2">
+            <img src="img/william.png" alt="william" class="front-face cut" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="3">
+            <img src="img/Artorias.png" alt="artorias" class="front-face cut" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="3">
+            <img src="img/Artorias.png" alt="artorias" class="front-face cut" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="4">
+            <img src="img/Fungus.png" alt="fungus" class="front-face" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="4">
+            <img src="img/Fungus.png" alt="fungus" class="front-face" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="5">
+            <img src="img/ogre.png" alt="ogre" class="front-face" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="5">
+            <img src="img/ogre.png" alt="ogre" class="front-face" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="6">
+            <img src="img/sif.png" alt="sif" class="front-face" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="6">
+            <img src="img/sif.png" alt="sif" class="front-face" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="7">
+            <img src="img/os.png" alt="os" class="front-face" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="7">
+            <img src="img/os.png" alt="os" class="front-face" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="8">
+            <img src="img/Knight.png" alt="knight" class="front-face cut" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+          <li class="card scaled" type="8">
+            <img src="img/Knight.png" alt="knight" class="front-face cut" />
+            <img src="img/sun.png" alt="sun" class="back-face" />
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="overlay-died">
+            <div class="popup">
+                    <h2 class="died-logo"></h2>
+                    <a href="" class="close"></a>
+                    <div class="endstats"></div>
+                    <button class="play-again" onClick="refreshPage()">Give me one more chance</button>
+            </div>
+    </div>
+
+    <div class="overlay-victory">
+                <div class="popup-lighter">
+                        <h2 class="victory-logo">Victory achieved</h2>
+                        <a href="" class="close"></a>
+                        <div class="endstats"></div>
+                        <button class="play-again" onClick="refreshPage()">Let the new circle begin</button>
+                </div>
+        </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
