@@ -73,7 +73,39 @@ function cardOpen() {
   }
   showMoves();
 }
+const chestModal = document.querySelector(".overlay-chest");
+function chestEncounter() {
+ show(chestModal);
+};
 
+function leaveChest (){
+  chestModal.classList.remove("show");
+}
+
+function mimicAttack() {
+  $('.chest-logo').css('background-image', 'url(img/mim.png)');
+  $('.open-chest').css("visibility", "hidden");
+  $('.leave-chest').text("RUN");
+  hp = hp - 10
+  $(".health-bar-text").html(Math.round(hp) + "%");
+  $('.healthbar').css('width', hp + '%' );
+  $('.healthbar-secondary').css('width', hp + '%');
+}
+
+function drinkEsthus() {
+  $('.chest-logo').css('background-image', 'url(img/esthus.png)');
+  $('.open-chest').css("visibility", "hidden");
+  $('.leave-chest').text("Drink Esthus");
+  if (hp <= 90 ) {hp = hp + 10};
+  $(".health-bar-text").html(Math.round(hp) + "%");
+  $('.healthbar').css('width', hp + '%' );
+  $('.healthbar-secondary').css('width', hp + '%');
+}
+
+function openChest() {
+  let rndm = Math.random();
+  rndm > 0.5 ? mimicAttack() : drinkEsthus();
+}
 function matched() {
   
   openedCards[0].classList.add("matched");
@@ -82,11 +114,15 @@ function matched() {
   openedCards[1].classList.add("disabled");
   matchedCard.push(openedCards[0]);
   matchedCard.push(openedCards[1]);
+  if (openedCards[0].type === "1" && openedCards[1].type ==="1" ){
+    setTimeout(() => {chestEncounter()}, 2000);
+  }
   openedCards = [];
  
   showEnemiesDefeated();
  
 }
+
 
 function unmatched() {
  

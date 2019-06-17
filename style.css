@@ -256,31 +256,43 @@ position: absolute;
   padding: 0px;
 }
 
-.overlay-died {
+.overlay-died,
+.overlay-victory,
+.overlay-chest {
   position: fixed;
   top: -69px;
 	bottom: 0;
 	left: 0;
 	right: 0;
-  background: rgba(0, 0, 0, 0.7);
 	transition: opacity 2s;
   visibility: hidden;
-  
   opacity: 0;
   width: 100%;
   height: 100%;
   z-index: 3;
 }
+
+.overlay-died {
+  background: rgba(0, 0, 0, 0.7);
+}
+ 
+
+.overlay-victory {
+  background: transparent;
+}
+
+
 .show {
   visibility: visible !important;
   opacity: 100 !important;
 }
-.popup {
+.popup,
+.popup-lighter {
 	margin: 70px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-	background-color: black;
+
 	border-radius: 5px;
 	width: 100%;
 	position: relative;
@@ -288,7 +300,17 @@ position: absolute;
   height: 100%;
   box-shadow:inset 0 0 10px grey;
   text-align: center;
-  
+}
+.popup {
+	background-color: black;
+  height: 100%;
+}
+
+.popup-lighter {
+
+	background-color: rgba(51, 51, 45, 0.8);
+  color: #ffe461;
+  justify-content: center;
 }
 
 @keyframes showopacity {
@@ -308,7 +330,32 @@ position: absolute;
   margin-bottom: 100px;
 }
 
-.play-again {
+.chest-logo {
+  background-image: url(img/bigchest.png);
+  background-repeat: no-repeat;
+  height: 450px;
+  background-position: center center;
+  transition: showopacity 500ms;
+  opacity: 1;
+  margin-bottom: 100px;
+}
+
+button {
+  font-size: 46px;
+  font-family: "Optimus", serif;
+  font-size: 42px;
+  position: relative;
+  text-transform: uppercase;
+  cursor: pointer;
+  animation: pulsate 2.5s ease-out;
+  animation-iteration-count: infinite; 
+  opacity: 0.4;
+  background-color: transparent;
+  color: #5d0d0e;
+  border: 0;
+  margin-bottom: 50px;
+}
+/* .play-again {
   font-size: 46px;
   font-family: "Optimus", serif;
   font-size: 42px;
@@ -316,14 +363,13 @@ position: absolute;
   background-color: transparent;
   border: 0;
   transition: opacity 500ms;
-  position: relative;
   text-transform: uppercase;
   cursor: pointer;
   animation: pulsate 2.5s ease-out;
     animation-iteration-count: infinite; 
     opacity: 0.4;
  
-}
+} */
 
 @keyframes pulsate {
   from{ 
@@ -337,20 +383,7 @@ position: absolute;
   }
 }
 
-.overlay-victory {
-  position: fixed;
-  top: -69px;
-	bottom: 0;
-	left: 0;
-	right: 0;
-  background: transparent;
-	transition: opacity 2s;
-  visibility: hidden;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-}
+
 
 .victory-logo {
 font-size: 60px;
@@ -366,24 +399,7 @@ color: #ffe461;
 
 }
 
-.popup-lighter {
-	margin: 70px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-	background-color: rgba(51, 51, 45, 0.8);
-  border-radius: 5px;
-  color: #ffe461;
-	width: 100%;
-	position: relative;
-  transition: opacity 2s ease-in-out;
-  height: 100%;
-  box-shadow:inset 0 0 10px grey;
-  text-align: center;
-  justify-content: center;
- 
-  
-}
+
 
 .popup-lighter .play-again {
   color: #ffe461;

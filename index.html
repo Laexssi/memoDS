@@ -43,12 +43,12 @@
         <aside class="sidebar-right"></aside>
         <ul class="deck" id="card-deck">
           <li class="card scaled" type="1">
-            <img src="img/firebone.png" alt="firebone" class="front-face" />
+            <img src="img/chest.png" alt="chest" class="front-face" />
             <img src="img/sun.png" alt="sun" class="back-face" />
           </li>
           <li class="card scaled" type="1">
-            <img src="img/firebone.png" alt="firebone" class="front-face" />
-            <img src="img/sun.png" alt="sun" class="back-face" />
+            <img src="img/chest.png" alt="firebone" class="front-face" />
+            <img src="img/sun.png" alt="chest" class="back-face" />
           </li>
           <li class="card scaled" type="2">
             <img src="img/william.png" alt="william" class="front-face cut" />
@@ -113,8 +113,8 @@
     <div class="overlay-died">
             <div class="popup">
                     <h2 class="died-logo"></h2>
-                    <a href="" class="close"></a>
-                    <div class="endstats"></div>
+                  
+                    
                     <button class="play-again" onClick="refreshPage()">Give me one more chance</button>
             </div>
     </div>
@@ -122,11 +122,20 @@
     <div class="overlay-victory">
                 <div class="popup-lighter">
                         <h2 class="victory-logo">Victory achieved</h2>
-                        <a href="" class="close"></a>
+                       
                         <div class="endstats"></div>
                         <button class="play-again" onClick="refreshPage()">Let the new circle begin</button>
                 </div>
         </div>
+
+        <div class="overlay-chest">
+          <div class="popup">
+                  <h2 class="chest-logo"></h2>
+                  <div class="endstats"></div>
+                  <button class="leave-chest" onClick="leaveChest()">Do not touch</button>
+                  <button class="open-chest" onClick="openChest()">Open the chest</button>
+          </div>
+  </div>
 
     <script src="./script.js"></script>
   </body>
