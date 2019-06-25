@@ -37,6 +37,7 @@ ul, li {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-width: 700px;
 }
 
 h1 {
@@ -120,7 +121,8 @@ position: absolute;
   flex-direction: row;
   width: 100%;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content:  center;
+  
 }
 .sidebar-left {
   background-color: transparent;
@@ -404,4 +406,28 @@ color: #ffe461;
   color:  #ffe461;
   font-size: 40px;
   margin-bottom: 100px;
+}
+@media only screen 
+
+  and (max-device-width: 700px) 
+ 
+
+ {
+  .field {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-left {
+    order: 4;
+    margin: 0 auto;
+  }
+
+  .deck {
+    margin: 0 auto;
+  }
+
+  .sidebar-right{
+    display: none;
+  }
 }

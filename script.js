@@ -48,7 +48,7 @@ const displayCard = function() {
 
   this.classList.add("disabled");
 
-  console.log(this);
+  //console.log(this);
 };
 cards.forEach(card => card.addEventListener("click", displayCard));
 cards.forEach(card => card.addEventListener("click", cardOpen));
@@ -61,7 +61,7 @@ const matchedCardHTML = document.getElementsByClassName("match");
 const matchedCard = [...matchedCardHTML];
 function cardOpen() {
   openedCards.push(this);
-  console.log(openedCards);
+ // console.log(openedCards);
   if (openedCards.length === 2) {
     openedCards[0].type === openedCards[1].type ? matched() : unmatched();
   }
@@ -243,12 +243,10 @@ function show(modal) {
 
 function refreshPage() {
   location.reload("true");
-  console.log(this);
+ // console.log(this);
 }
 
-document.onclick = function(e) {
-  console.log(e.target);
-};
+
 
 function victory() {
   if (matchedCard.length == 16) {
@@ -264,6 +262,6 @@ function victory() {
       localStorage.setItem("HighScore", highscore.toString(10));
     }
     localStorage.setItem("lastHighScore", highscore.toString(10));
-    console.log(matchedCard.length);
+   // console.log(matchedCard.length);
   }
 }
