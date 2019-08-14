@@ -1,2 +1,2 @@
 # memoDS
-laexssi.github.io
+https://laexssi.github.io/memoDS/
