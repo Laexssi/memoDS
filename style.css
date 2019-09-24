@@ -1,4 +1,4 @@
-@font-face {
+﻿@font-face {
   font-family: Optimus; /* Гарнитура шрифта */
   src: url(fonts/OptimusPrinceps.ttf); /* Путь к файлу со шрифтом */
  }
@@ -247,14 +247,19 @@ position: absolute;
   margin: 0 auto;
   height: 100%;
   width: 100%;
-  backface-visibility: hidden;
-  /* pls hidden */
+  backface-visibility: hidden !important;
+  
 }
 
 .front-face {
   transform: rotateY(180deg);
   padding: 10px;
-  /* border: 5px solid rgb(0, 0, 0); */
+  border: 1px solid transparent;
+}
+
+.back-face {
+ 
+  border: 1px solid  transparent;
 }
 
 .cut {
