@@ -26,6 +26,7 @@ body {
   background-image: url(img/solaire.jpg);
   background-position: center top;
   background-repeat: no-repeat;
+  background-size:cover
 
 }
 
@@ -418,6 +419,9 @@ color: #ffe461;
  
 
  {
+   html {
+     background-size: auto 300%;
+   }
   .field {
     flex-direction: column;
     flex-wrap: wrap;
@@ -436,3 +440,4 @@ color: #ffe461;
     display: none;
   }
 }
+
